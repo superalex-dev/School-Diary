@@ -1,0 +1,17 @@
+CREATE DATABASE SchoolDiary
+GO
+
+USE SchoolDiary
+GO
+
+CREATE TABLE Students (
+    Id INT IDENTITY(1, 1) PRIMARY KEY,
+    StudentName NVARCHAR(30) NOT NULL,
+    StudentClass NVARCHAR(30) NOT NULL,
+);
+
+CREATE TABLE Grades (
+    Id INT IDENTITY(1, 1) PRIMARY KEY,
+    StudentId INT FOREIGN KEY REFERENCES Students(Id) NOT NULL,
+    Grade FLOAT NOT NULL,
+)
